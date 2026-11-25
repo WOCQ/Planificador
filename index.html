@@ -1,57 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Planificador Universitario</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Prototipo V2.1 · Planificación y desglose de tareas universitarias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<a class="skip-link" href="#view">Saltar al contenido principal</a>
-<div class="app">
-  <aside aria-label="Navegación principal">
-    <div class="brand"><span class="brand-mark">✓</span>Espacio de trabajo</div>
-    <div class="nav-label">Menú</div>
-    <button class="nav-btn" data-view="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Inicio</button>
-    <button class="nav-btn" data-view="tareas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg>Mis tareas<span class="nav-count" id="navCount"></span></button>
-    <button class="nav-btn" data-view="calendario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendario</button>
-    <button class="nav-btn" data-view="cursos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Cursos</button>
-    <button class="nav-btn" data-view="progreso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</button>
-    <div class="help-card"><b>¿Entrega grande?</b><br>Ábrela y divídela en subtareas con fecha desde la sección «Desglose».</div>
-  </aside>
-  <main id="mainContent" tabindex="-1">
-    <div class="topbar">
-      <div class="crumbs">Espacio de trabajo &nbsp;›&nbsp; <b id="crumb">Inicio</b></div>
-      <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="search" placeholder="Buscar tareas o cursos" aria-label="Buscar tareas o cursos"></label>
-      <button class="icon-btn" aria-label="Notificaciones: 1 entrega vence hoy" title="1 entrega vence hoy"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot-badge"></span></button>
-      <div class="access-wrap">
-        <button class="btn" id="accessToggle" aria-expanded="false" aria-controls="accessPanel">♿ Accesibilidad</button>
-        <section class="access-panel" id="accessPanel" aria-label="Preferencias de accesibilidad">
-          <h2>Personaliza la visualización</h2>
-          <label class="access-option">Texto grande <input type="checkbox" id="largeText"></label>
-          <label class="access-option">Alto contraste <input type="checkbox" id="highContrast"></label>
-          <label class="access-option">Reducir movimiento <input type="checkbox" id="reduceMotion"></label>
-          <label class="access-option">Vibración opcional <input type="checkbox" id="vibration"></label>
-          <p class="hint-txt" style="margin:0">Los avisos se muestran siempre en pantalla. La vibración depende del dispositivo y del navegador.</p>
-          <div class="access-actions"><button class="btn" id="testNotice">Probar aviso</button><button class="btn btn-ghost" id="resetAccess">Restablecer</button></div>
-        </section>
+  <a class="skip-link" href="#view">Saltar al contenido principal</a>
+  <div class="app">
+    <aside aria-label="Navegación principal">
+      <div class="brand"><span class="brand-mark">✓</span>Espacio de trabajo</div>
+      <div class="nav-label">Menú</div>
+      <button class="nav-btn" data-view="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />
+        </svg>Inicio</button>
+      <button class="nav-btn" data-view="tareas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <path d="M9 6h11M9 12h11M9 18h11" />
+          <path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2" />
+        </svg>Mis tareas<span class="nav-count" id="navCount"></span></button>
+      <button class="nav-btn" data-view="calendario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <rect x="3" y="5" width="18" height="16" rx="2" />
+          <path d="M3 10h18M8 3v4M16 3v4" />
+        </svg>Calendario</button>
+      <button class="nav-btn" data-view="cursos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" />
+          <path d="M4 19V5" />
+        </svg>Cursos</button>
+      <button class="nav-btn" data-view="progreso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
+        </svg>Progreso</button>
+      <div class="help-card"><b>¿Entrega grande?</b><br>Ábrela y divídela en subtareas con fecha desde la sección
+        «Desglose».</div>
+    </aside>
+    <main id="mainContent" tabindex="-1">
+      <div class="topbar">
+        <div class="crumbs">Espacio de trabajo &nbsp;›&nbsp; <b id="crumb">Inicio</b></div>
+        <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M20 20l-3.5-3.5" />
+          </svg><input id="search" placeholder="Buscar tareas o cursos" aria-label="Buscar tareas o cursos"></label>
+        <button class="icon-btn" aria-label="Notificaciones: 1 entrega vence hoy" title="1 entrega vence hoy"><svg
+            width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8" />
+            <path d="M10 20a2 2 0 0 0 4 0" />
+          </svg><span class="dot-badge"></span></button>
+        <div class="access-wrap">
+          <button class="btn" id="accessToggle" aria-expanded="false" aria-controls="accessPanel">♿
+            Accesibilidad</button>
+          <section class="access-panel" id="accessPanel" aria-label="Preferencias de accesibilidad">
+            <h2>Personaliza la visualización</h2>
+            <label class="access-option">Texto grande <input type="checkbox" id="largeText"></label>
+            <label class="access-option">Alto contraste <input type="checkbox" id="highContrast"></label>
+            <label class="access-option">Reducir movimiento <input type="checkbox" id="reduceMotion"></label>
+            <label class="access-option">Vibración opcional <input type="checkbox" id="vibration"></label>
+            <p class="hint-txt" style="margin:0">Los avisos se muestran siempre en pantalla. La vibración depende del
+              dispositivo y del navegador.</p>
+            <div class="access-actions"><button class="btn" id="testNotice">Probar aviso</button><button
+                class="btn btn-ghost" id="resetAccess">Restablecer</button></div>
+          </section>
+        </div>
+        <button class="btn btn-primary" id="btnNew">+ Nueva tarea <kbd>N</kbd></button>
       </div>
-      <button class="btn btn-primary" id="btnNew">+ Nueva tarea <kbd>N</kbd></button>
-    </div>
-    <div class="content" id="view" tabindex="-1"></div>
-  </main>
-</div>
+      <div class="content" id="view" tabindex="-1"></div>
+    </main>
+  </div>
 
-<div class="scrim" id="scrim"></div>
-<section class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drTitle"></section>
+  <div class="scrim" id="scrim"></div>
+  <section class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drTitle"></section>
 
-<div class="modal-wrap" id="modalWrap"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" id="modal"></div></div>
-<div class="modal-wrap" id="confirmWrap"><div class="modal confirm" role="alertdialog" aria-modal="true" id="confirm"></div></div>
+  <div class="modal-wrap" id="modalWrap">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" id="modal"></div>
+  </div>
+  <div class="modal-wrap" id="confirmWrap">
+    <div class="modal confirm" role="alertdialog" aria-modal="true" id="confirm"></div>
+  </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="script.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
+
 </html>
